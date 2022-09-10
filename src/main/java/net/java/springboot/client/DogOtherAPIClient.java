@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(value = "dogimagesapiclient", url = "https://dog.ceo/api")
-public interface DogImagesAPIClient {
+@FeignClient(value = "dogotherapiclient", url = "https://dog.ceo/api")
+public interface DogOtherAPIClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/images")
     DogAPIBaseResponse<List<String>> getImagesByBreed(@PathVariable(name = "breed") String breed);

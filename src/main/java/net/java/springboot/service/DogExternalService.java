@@ -2,7 +2,7 @@ package net.java.springboot.service;
 
 import lombok.extern.slf4j.Slf4j;
 import net.java.springboot.client.DogAPIClient;
-import net.java.springboot.client.DogImagesAPIClient;
+import net.java.springboot.client.DogOtherAPIClient;
 import net.java.springboot.dto.response.DogAPIBaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class DogExternalService {
     @Autowired
     private DogAPIClient apiClient;
     @Autowired
-    private DogImagesAPIClient imagesAPIClient;
+    private DogOtherAPIClient otherAPIClient;
 
     public Map<String, List<String>> getAllDogs() {
         var response = apiClient.getListAll();
@@ -47,7 +47,7 @@ public class DogExternalService {
         // To Do : Make efficient async call
         subbreedList.stream().forEach((subbreed) -> {
             CompletableFuture<DogAPIBaseResponse<List<String>>> future
-                    = CompletableFuture.supplyAsync(() -> imagesAPIClient.getImagesBySubbreed(breed, subbreed));
+                    = CompletableFuture.supplyAsync(() -> otherAPIClient.getImagesBySubbreed(breed, subbreed));
             try {
                 result.put(breed + "-" + subbreed, future.get().getMessage());
             } catch (InterruptedException e) {
@@ -60,7 +60,7 @@ public class DogExternalService {
     }
 
     public List<String> getImagesByBreed(String breed) {
-        var response = imagesAPIClient.getImagesByBreed(breed);
+        var response = otherAPIClient.getImagesByBreed(breed);
 
         List<String> result = new ArrayList<>();
         response.getMessage().stream().forEach((imageUrl) -> {
