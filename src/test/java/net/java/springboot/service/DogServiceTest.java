@@ -22,7 +22,6 @@ class DogServiceTest {
     @InjectMocks
     private DogService dogService;
 
-
     @Test
     void saveTest() {
         Dog dog = new Dog(1L, "Dog", "Dog");

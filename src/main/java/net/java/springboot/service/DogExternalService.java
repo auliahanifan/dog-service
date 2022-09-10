@@ -65,7 +65,7 @@ public class DogExternalService {
         List<String> result = new ArrayList<>();
         response.getMessage().stream().forEach((imageUrl) -> {
             // Make shiba get only odd number
-            if (breed.equals("shiba")) {
+            if (breed.toLowerCase(Locale.ROOT).equals("shiba")) {
                 shibaOddOnlyAddition(result, breed, imageUrl);
             } else {
                 result.add(imageUrl);
