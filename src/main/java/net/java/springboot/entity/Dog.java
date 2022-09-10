@@ -7,6 +7,9 @@ import lombok.*;
 @Table(name="tbl_dog")
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Dog {
 	
 	@Id
