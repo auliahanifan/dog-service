@@ -18,11 +18,4 @@ public interface DogAPIClient {
     @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/list")
     DogAPIBaseResponse<List<String>> getSubbreedsByBreed(@PathVariable(name = "breed") String breed);
 
-    @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/images")
-    DogAPIBaseResponse<List<String>> getImagesByBreed(@PathVariable(name = "breed") String breed);
-
-    @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/{subbreed}/images")
-    DogAPIBaseResponse<List<String>> getImagesBySubbreed(@PathVariable(name = "breed") String breed,
-                                                               @PathVariable(name = "subbreed") String subbreed);
-
 }
