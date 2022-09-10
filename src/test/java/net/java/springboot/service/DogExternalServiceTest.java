@@ -28,7 +28,7 @@ class DogExternalServiceTest {
     private DogExternalService service;
 
     @Test
-    void getImagesByBreed_Test() {
+    void getImagesByBreed_Shiba_Test() {
         List<String> imagesUrlList = List.of(
                 "https://url/shiba-1.jpg",
                 "https://url/shiba-2.jpg",
@@ -46,6 +46,22 @@ class DogExternalServiceTest {
         var result = service.getImagesByBreed("shiba");
 
         assertEquals(oddImagesUrlList, result);
+    }
+
+    @Test
+    void getImagesByBreed_NonShiba_Test() {
+        List<String> imagesUrlList = List.of(
+                "https://url/hound-1.jpg",
+                "https://url/hound-2.jpg",
+                "https://url/hound-3.jpg",
+                "https://url/hound-4.jpg"
+        );
+
+        when(dogOtherAPIClient.getImagesByBreed(any())).thenReturn(new DogAPIBaseResponse(imagesUrlList, "success"));
+
+        var result = service.getImagesByBreed("hound");
+
+        assertEquals(imagesUrlList, result);
     }
 
 }
