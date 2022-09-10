@@ -1,5 +1,6 @@
 package net.java.springboot.service;
 
+import lombok.extern.slf4j.Slf4j;
 import net.java.springboot.entity.Dog;
 import net.java.springboot.repository.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class DogService {
 
     @Autowired
