@@ -26,4 +26,10 @@ public class DogExternalController {
         var result = service.getImagesByBreed(breed);
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("/{breed}/list")
+    public ResponseEntity<?> getSubbreedsByBreed(@PathVariable String breed) {
+        var result = service.getSubbreedsByBreed(breed);
+        return ResponseEntity.ok(result);
+    }
 }

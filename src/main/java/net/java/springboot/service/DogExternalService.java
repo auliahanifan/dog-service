@@ -75,6 +75,11 @@ public class DogExternalService {
         return result;
     }
 
+    public List<String> getSubbreedsByBreed(String breed) {
+        var response = otherAPIClient.getSubbreedsByBreed(breed);
+        return response.getMessage();
+    }
+
     private void shibaOddOnlyAddition(List<String> result, String breed, String imageUrl) {
         String numberOnly= imageUrl.replaceAll("[^0-9]", "");
         if (Integer.valueOf(numberOnly) % 2 != 0) {

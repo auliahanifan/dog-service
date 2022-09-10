@@ -11,6 +11,9 @@ import java.util.List;
 @FeignClient(value = "dogotherapiclient", url = "https://dog.ceo/api")
 public interface DogOtherAPIClient {
 
+    @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/list")
+    DogAPIBaseResponse<List<String>> getSubbreedsByBreed(@PathVariable(name = "breed") String breed);
+
     @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/images")
     DogAPIBaseResponse<List<String>> getImagesByBreed(@PathVariable(name = "breed") String breed);
 

@@ -15,7 +15,4 @@ public interface DogAPIClient {
     @RequestMapping(method = RequestMethod.GET, value = "/breeds/list/all", produces = "application/json")
     DogAPIBaseResponse<Map<String, List<String>>> getListAll();
 
-    @RequestMapping(method = RequestMethod.GET, value = "/breed/{breed}/list")
-    DogAPIBaseResponse<List<String>> getSubbreedsByBreed(@PathVariable(name = "breed") String breed);
-
 }
