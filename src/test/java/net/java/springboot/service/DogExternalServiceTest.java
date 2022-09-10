@@ -3,7 +3,6 @@ package net.java.springboot.service;
 import net.java.springboot.client.DogAPIClient;
 import net.java.springboot.client.DogOtherAPIClient;
 import net.java.springboot.dto.response.DogAPIBaseResponse;
-import net.java.springboot.repository.DogRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
